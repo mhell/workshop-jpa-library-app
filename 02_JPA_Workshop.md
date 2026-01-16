@@ -53,7 +53,7 @@
 
 ## Table 1: AppUser and Details Entity Relationships
 
-````mermaid
+```mermaid
 classDiagram
     class Details {
         - int id
@@ -74,4 +74,4 @@ classDiagram
     }
 
     AppUser "1" --> "1" Details : OneToOne
-````
+```
