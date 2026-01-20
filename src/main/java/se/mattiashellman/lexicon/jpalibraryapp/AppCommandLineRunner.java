@@ -18,14 +18,14 @@ public class AppCommandLineRunner implements CommandLineRunner {
     AppUserRepository appUserRepository;
     DetailsRepository detailsRepository;
 
-    @Autowired
+    // @Autowired
     public AppCommandLineRunner(DetailsRepository detailsRepository, AppUserRepository appUserRepository) {
         this.detailsRepository = detailsRepository;
         this.appUserRepository = appUserRepository;
     }
 
     @Override
-    public void run(String... args) throws Exception {
+    public void run(String... args){
         // AppUserRepository
         Details details = detailsRepository.save(new Details("email@email.com", "name", LocalDate.of(1982, 12, 2)));
         appUserRepository.save(new AppUser("username", "123", LocalDate.now(), details));
