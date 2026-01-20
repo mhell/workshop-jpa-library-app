@@ -29,7 +29,7 @@ public class AppUser {
     private LocalDate regDate;
 
     @OneToOne
-    @JoinColumn(name = "details_id")
+    @JoinColumn(name = "details_id", unique = true)
     private Details userDetails;
 
     public AppUser(String username, String password, LocalDate reDate, Details userDetails) {
