@@ -1,8 +1,6 @@
 package se.mattiashellman.lexicon.jpalibraryapp.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.query.Param;
 import se.mattiashellman.lexicon.jpalibraryapp.entity.AppUser;
 
 import java.time.LocalDate;
