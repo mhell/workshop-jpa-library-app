@@ -37,5 +37,5 @@ public interface BookLoanRepository extends JpaRepository<BookLoan, Integer> {
     // Mark a book loan as returned by its loan ID.
     @Modifying
     @Query("UPDATE BookLoan l SET l.returned = true WHERE l.id = :id")
-    void returnBook(int id);
+    int returnBook(int id);
 }
