@@ -12,7 +12,7 @@ public class Book {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(nullable = false)
-    private Integer id;
+    private int id;
 
     @Setter
     @Column(length = 20, nullable = false) // TODO: unique?
@@ -23,7 +23,7 @@ public class Book {
     private String title;
 
     @Setter
-    private int maxLoanDays;
+    private int maxLoanDays; // TODO nullable?
 
     public Book(String isbn, String title, int maxLoanDays) {
         this.isbn = isbn;
