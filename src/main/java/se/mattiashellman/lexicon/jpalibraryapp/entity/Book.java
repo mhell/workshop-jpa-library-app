@@ -32,6 +32,9 @@ public class Book {
     @ManyToMany(mappedBy = "writtenBooks") //TODO: cascades?
     Set<Author> authors;
 
+    @Setter
+    private boolean available = true;
+
     public Book(String isbn, String title, int maxLoanDays) {
         this.isbn = isbn;
         this.title = title;
