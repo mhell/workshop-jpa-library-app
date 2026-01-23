@@ -25,7 +25,7 @@ public class Book {
     private String title;
 
     @Setter
-    private int maxLoanDays; // TODO nullable?
+    private int maxLoanDays;
 
     @Setter
     @Column(nullable = false)
