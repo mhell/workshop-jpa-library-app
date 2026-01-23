@@ -29,8 +29,7 @@ public class AppCommandLineRunner implements CommandLineRunner {
     public void run(String... args){
         // AppUserRepository
         Details details = new Details("email@email.com", "name", LocalDate.of(1982, 12, 2));
-        appUserRepository.save(new AppUser("username", "123", LocalDate.now(), details));
-
+        appUserRepository.save(new AppUser("username", "123", details));
         Optional<AppUser> appUser = appUserRepository.findByUsername("username");
         System.out.print("1. ");
         appUser.ifPresent(System.out::println);

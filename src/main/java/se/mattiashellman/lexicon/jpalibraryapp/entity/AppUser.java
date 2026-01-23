@@ -2,6 +2,7 @@ package se.mattiashellman.lexicon.jpalibraryapp.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.LocalDate;
 import java.util.Set;
@@ -26,6 +27,7 @@ public class AppUser {
     private String password;
 
     @Setter
+    @CreationTimestamp
     private LocalDate regDate;
 
     @OneToOne(cascade = CascadeType.ALL)
@@ -36,11 +38,9 @@ public class AppUser {
     @OneToMany(mappedBy = "borrower")
     Set<BookLoan> bookLoans;
 
-    // TODO: pre-persist registration date or @CreationTimestamp annotation
-    public AppUser(String username, String password, LocalDate reDate, Details userDetails) {
+    public AppUser(String username, String password, Details userDetails) {
         this.username = username;
         this.password = password;
-        this.regDate = reDate;
         this.userDetails = userDetails;
     }
 
