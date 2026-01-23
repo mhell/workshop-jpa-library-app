@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Getter
 @Setter
@@ -21,7 +22,6 @@ public class BookLoan {
     @Column(nullable = false)
     private LocalDate loanDate;
 
-    @Setter
     @Column(nullable = false)
     private LocalDate dueDate;
 
@@ -36,11 +36,15 @@ public class BookLoan {
     @ManyToOne
     private Book book;
 
-    public BookLoan(LocalDate loanDate, LocalDate dueDate, boolean returned, AppUser borrower, Book book) {
+    public BookLoan(LocalDate loanDate, boolean returned, AppUser borrower, Book book) {
         this.loanDate = loanDate;
-        this.dueDate = dueDate;
         this.returned = returned;
         this.borrower = borrower;
         this.book = book;
+    }
+
+    public LocalDate getDueDate() {
+        dueDate = loanDate.plusDays(book.getMaxLoanDays());
+        return dueDate;
     }
 }
