@@ -3,12 +3,10 @@ package se.mattiashellman.lexicon.jpalibraryapp.repository;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
-import se.mattiashellman.lexicon.jpalibraryapp.entity.Book;
 import se.mattiashellman.lexicon.jpalibraryapp.entity.BookLoan;
 
 import java.time.LocalDate;
 import java.util.List;
-import java.util.Optional;
 
 public interface BookLoanRepository extends JpaRepository<BookLoan, Integer> {
 
