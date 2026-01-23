@@ -17,7 +17,7 @@ public interface BookLoanRepository extends JpaRepository<BookLoan, Integer> {
     List<BookLoan> findByBook_Id(int bookId);
 
     // Find all book loans that have not been returned yet.
-    List<BookLoan> findByReturnedFalse(); // TODO: test
+    List<BookLoan> findByReturnedFalse();
 
     // Find all overdue book loans.
     List<BookLoan> findByDueDateIsAfter(LocalDate dueDateAfter);
