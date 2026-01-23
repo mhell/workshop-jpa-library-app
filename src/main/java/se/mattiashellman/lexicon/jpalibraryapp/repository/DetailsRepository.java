@@ -7,9 +7,7 @@ import java.util.List;
 import java.util.Optional;
 
 public interface DetailsRepository extends JpaRepository<Details, Integer> {
-
     Optional<Details> findByEmail(String email);
     List<Details> findByNameContains(String name);
     List<Details> findByNameIgnoreCase(String name);
-    
 }
