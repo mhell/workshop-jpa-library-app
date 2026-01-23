@@ -1,6 +1,7 @@
 package se.mattiashellman.lexicon.jpalibraryapp.entity;
 
 import jakarta.persistence.*;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -9,11 +10,12 @@ import org.hibernate.annotations.CreationTimestamp;
 import java.time.LocalDate;
 
 @Getter
-@Setter
-@Entity
 @NoArgsConstructor
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
+@Entity
 public class BookLoan {
     @Id
+    @EqualsAndHashCode.Include
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(nullable = false, updatable = false)
     private int id;
