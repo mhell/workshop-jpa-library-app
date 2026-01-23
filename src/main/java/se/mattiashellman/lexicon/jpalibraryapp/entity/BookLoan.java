@@ -34,6 +34,7 @@ public class BookLoan {
 
     @Setter
     @ManyToOne
+    @JoinColumn(nullable = false, unique = true)
     private Book book;
 
     public BookLoan(LocalDate loanDate, boolean returned, AppUser borrower, Book book) {
