@@ -20,7 +20,7 @@ public class Details {
     private String email;
 
     @Setter
-    @Column(length = 50, nullable = false)
+    @Column(length = 120, nullable = false)
     private String name;
 
     @Setter
