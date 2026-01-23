@@ -17,7 +17,6 @@ public class AppUser {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(nullable = false, updatable = false)
-
     private int id;
 
     @Setter
@@ -35,11 +34,11 @@ public class AppUser {
     @JoinColumn(name = "details_id", unique = true)
     private Details userDetails;
 
-    @OneToMany(mappedBy = "borrower")
     // @ToString.Exclude
+    @OneToMany(mappedBy = "borrower")
     Set<BookLoan> bookLoans;
 
-    // TODO: prepersist registration date or annotation...
+    // TODO: pre-persist registration date or @CreationTimestamp annotation
     public AppUser(String username, String password, LocalDate reDate, Details userDetails) {
         this.username = username;
         this.password = password;
@@ -47,7 +46,6 @@ public class AppUser {
         this.userDetails = userDetails;
     }
 
-    // TODO: Ok or exception?
     public boolean addBookLoan(BookLoan bookLoan) {
         if(bookLoan.getBook().isAvailable() && bookLoans.add(bookLoan)) {
             bookLoan.setBorrower(this);
@@ -57,7 +55,7 @@ public class AppUser {
         return false;
     }
 
-    // TODO: Needed? Wrong?
+    // TODO: Needed?
     public boolean removeBookLoan(BookLoan bookLoan) {
         if(bookLoans.remove(bookLoan)) {
             bookLoan.setBorrower(null);
