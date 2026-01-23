@@ -8,7 +8,6 @@ import java.util.Set;
 
 @Getter
 @ToString
-@EqualsAndHashCode
 @NoArgsConstructor
 @Entity
 public class AppUser {
@@ -33,7 +32,7 @@ public class AppUser {
     @JoinColumn(name = "details_id", unique = true)
     private Details userDetails;
 
-    // @ToString.Exclude
+    @ToString.Exclude
     @OneToMany(mappedBy = "borrower")
     Set<BookLoan> bookLoans;
 
