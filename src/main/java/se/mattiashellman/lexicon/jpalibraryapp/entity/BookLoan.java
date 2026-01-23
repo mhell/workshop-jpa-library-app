@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.LocalDate;
 
@@ -18,6 +19,7 @@ public class BookLoan {
     private int id;
 
     @Setter
+    @CreationTimestamp
     @Column(nullable = false)
     private LocalDate loanDate;
 
@@ -33,12 +35,10 @@ public class BookLoan {
 
     @Setter
     @ManyToOne
-    @JoinColumn(nullable = false, unique = true)
+    @JoinColumn(nullable = false)
     private Book book;
 
-    public BookLoan(LocalDate loanDate, boolean returned, AppUser borrower, Book book) {
-        this.loanDate = loanDate;
-        this.returned = returned;
+    public BookLoan(AppUser borrower, Book book) {
         this.borrower = borrower;
         this.book = book;
     }
