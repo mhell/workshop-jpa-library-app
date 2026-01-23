@@ -32,7 +32,7 @@ public class BookLoan {
     private boolean returned;
 
     @Setter
-    @ManyToOne
+    @ManyToOne //TODO: cascades?
     private AppUser borrower;
 
     @Setter

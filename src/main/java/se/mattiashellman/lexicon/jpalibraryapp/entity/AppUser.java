@@ -37,7 +37,7 @@ public class AppUser {
     private Details userDetails;
 
     @ToString.Exclude
-    @OneToMany(mappedBy = "borrower")
+    @OneToMany(mappedBy = "borrower") //TODO: cascades?
     Set<BookLoan> bookLoans;
 
     public AppUser(String username, String password, Details userDetails) {
