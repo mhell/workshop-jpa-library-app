@@ -36,8 +36,10 @@ public class AppUser {
     private Details userDetails;
 
     @OneToMany(mappedBy = "borrower")
+    // @ToString.Exclude
     Set<BookLoan> bookLoans;
 
+    // TODO: prepersist registration date or annotation...
     public AppUser(String username, String password, LocalDate reDate, Details userDetails) {
         this.username = username;
         this.password = password;
@@ -45,16 +47,23 @@ public class AppUser {
         this.userDetails = userDetails;
     }
 
-    public void addBookLoan(BookLoan bookLoan) {
-        if(bookLoans.add(bookLoan)) {
+    // TODO: Ok or exception?
+    public boolean addBookLoan(BookLoan bookLoan) {
+        if(bookLoan.getBook().isAvailable() && bookLoans.add(bookLoan)) {
             bookLoan.setBorrower(this);
+            bookLoan.getBook().setAvailable(false);
+            return true;
         }
+        return false;
     }
 
     // TODO: Needed? Wrong?
-    public void removeBookLoan(BookLoan bookLoan) {
+    public boolean removeBookLoan(BookLoan bookLoan) {
         if(bookLoans.remove(bookLoan)) {
             bookLoan.setBorrower(null);
+            bookLoan.getBook().setAvailable(true);
+            return true;
         }
+        return false;
     }
 }
