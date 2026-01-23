@@ -28,10 +28,9 @@ public class Author {
     @ManyToMany //TODO: cascades?
     Set<Book> writtenBooks;
 
-    public Author(String firstName, String lastName, Set<Book> writtenBooks) {
+    public Author(String firstName, String lastName) {
         this.firstName = firstName;
         this.lastName = lastName;
-        this.writtenBooks = writtenBooks;
     }
 
     public void addBook(Book book) {
