@@ -15,7 +15,7 @@ import java.time.LocalDateTime;
 public class BookLoan {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(nullable = false)
+    @Column(nullable = false, updatable = false)
     private int id;
 
     @Setter

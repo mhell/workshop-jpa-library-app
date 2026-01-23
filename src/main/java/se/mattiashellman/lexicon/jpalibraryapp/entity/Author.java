@@ -16,7 +16,7 @@ import java.util.Set;
 public class Author {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(nullable = false)
+    @Column(nullable = false, updatable = false)
     private int id;
 
     @Setter

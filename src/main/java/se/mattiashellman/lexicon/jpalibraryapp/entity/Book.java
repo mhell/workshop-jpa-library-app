@@ -13,11 +13,11 @@ import java.util.Set;
 public class Book {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(nullable = false)
+    @Column(nullable = false, updatable = false)
     private int id;
 
     @Setter
-    @Column(length = 20, nullable = false) // TODO: unique?
+    @Column(length = 20, nullable = false)
     private String isbn;
 
     @Setter
