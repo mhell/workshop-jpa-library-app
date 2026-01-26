@@ -1,15 +1,13 @@
 package se.mattiashellman.lexicon.jpalibraryapp.entity;
 
 import jakarta.persistence.*;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.util.HashSet;
 import java.util.Set;
 
 @Getter
+@ToString
 @NoArgsConstructor
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @Entity
@@ -32,6 +30,7 @@ public class Book {
     private int maxLoanDays;
 
     @Setter
+    @ToString.Exclude
     @Column(nullable = false)
     @ManyToMany(mappedBy = "writtenBooks") //TODO: cascades? cascade = {CascadeType.PERSIST, CascadeType.MERGE}
     Set<Author> authors = new HashSet<>();
