@@ -9,8 +9,6 @@ import se.mattiashellman.lexicon.jpalibraryapp.entity.Author;
 import se.mattiashellman.lexicon.jpalibraryapp.entity.Book;
 
 import java.util.List;
-import java.util.Optional;
-import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -25,7 +23,7 @@ class AuthorRepositoryTest {
     private EntityManager entityManager;
 
     @Test
-    void findByFirstName_exists_findsEntity() {
+    void findByFirstName_exist_findsEntity() {
         // Arrange
         String firstName = "Foo";
         Author author = new Author(firstName, "Bar");
@@ -38,7 +36,7 @@ class AuthorRepositoryTest {
     }
 
     @Test
-    void findByLastName_exists_findsEntity() {
+    void findByLastName_exist_findsEntity() {
         // Arrange
         String lastName = "Bar";
         Author author = new Author("Foo", lastName);
@@ -63,7 +61,7 @@ class AuthorRepositoryTest {
     }
 
     @Test
-    void findByWrittenBooks_Id_exists_findsEntity() {
+    void findByWrittenBooks_Id_exist_findsEntity() {
         // Arrange
         Author author = new Author("Jane", "Austen");
         Book book = new Book("9780141199078", "Pride and Prejudice", 20);

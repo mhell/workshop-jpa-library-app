@@ -22,7 +22,7 @@ class AppUserRepositoryTest {
     AppUserRepository appUserRepository;
 
     @Test
-    void findByUsername_isPresent_findsEntity() {
+    void findByUsername_exist_findsEntity() {
         // Arrange
         String username = "username";
         AppUser appUser = appUserRepository.save(new AppUser(username, "123", null));
@@ -47,7 +47,7 @@ class AppUserRepositoryTest {
     }
 
     @Test
-    void findByUserDetails_Id_isPresent_findsEntity() {
+    void findByUserDetails_Id_exist_findsEntity() {
         // Arrange
         Details details = new Details("email@email.com", "name", LocalDate.of(1990, 1, 1));
         AppUser appUser = appUserRepository.save(new AppUser("username", "123", details));
@@ -60,7 +60,7 @@ class AppUserRepositoryTest {
     }
 
     @Test
-    void findByUserDetails_EmailIgnoreCase_isPresent_findsEntity() {
+    void findByUserDetails_EmailIgnoreCase_exist_findsEntity() {
         // Arrange
         String email = "Email@Email.com";
         Details details = new Details("email@email.com", "name", LocalDate.of(1990, 1, 1));

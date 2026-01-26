@@ -20,7 +20,7 @@ class DetailsRepositoryTest {
     DetailsRepository detailsRepository;
 
     @Test
-    void findByEmail_exists_findsEntity() {
+    void findByEmail_exist_findsEntity() {
         // Arrange
         String email = "email@email.com";
         Details details = detailsRepository.save(new Details(email, "Name", LocalDate.of(1982, 12, 2)));
@@ -45,7 +45,7 @@ class DetailsRepositoryTest {
     }
 
     @Test
-    void findByNameContains_partialName_findsEntity() {
+    void findByNameContains_partialMatch_findsEntity() {
         // Arrange
         Details details = detailsRepository.save(new Details("email@email.com", "John Doe", LocalDate.of(1982, 12, 2)));
         // Act
