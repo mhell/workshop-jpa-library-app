@@ -33,7 +33,7 @@ public class AppUser {
     @CreationTimestamp
     private LocalDate regDate;
 
-    @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true) // TODO test one-directional orphan removal
     @JoinColumn(name = "details_id", unique = true)
     private Details userDetails;
 

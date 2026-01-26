@@ -73,18 +73,6 @@ class AppUserRepositoryTest {
     }
 
     @Test
-    void save_appUser_cascadesToDetails() {
-        // Arrange
-        Details details = new Details("email@email.com", "name", LocalDate.of(1990, 1, 1));
-        AppUser appUser = new AppUser("username", "123", details);
-        // Act
-        AppUser savedUser = appUserRepository.save(appUser);
-        // Assert
-        assertThat(savedUser.getId()).isPositive();
-        assertThat(savedUser.getUserDetails().getId()).isPositive();
-    }
-
-    @Test
     void save_duplicateUsername_throwsException() {
         // Arrange
         String username = "username";
@@ -108,5 +96,17 @@ class AppUserRepositoryTest {
         Executable executable = () -> appUserRepository.saveAndFlush(second);; // force a flush when testing db behavior
         // Assert
         assertThrows(DataIntegrityViolationException.class, executable);
+    }
+
+    @Test
+    void save_appUser_cascadesToDetails() {
+        // Arrange
+        Details details = new Details("email@email.com", "name", LocalDate.of(1990, 1, 1));
+        AppUser appUser = new AppUser("username", "123", details);
+        // Act
+        AppUser savedUser = appUserRepository.save(appUser);
+        // Assert
+        assertThat(savedUser.getId()).isPositive();
+        assertThat(savedUser.getUserDetails().getId()).isPositive();
     }
 }

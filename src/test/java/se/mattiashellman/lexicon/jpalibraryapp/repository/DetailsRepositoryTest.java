@@ -20,13 +20,12 @@ class DetailsRepositoryTest {
     DetailsRepository detailsRepository;
 
     @Test
-    void findByEmail_isPresent_findsEntity() {
+    void findByEmail_exists_findsEntity() {
         // Arrange
         String email = "email@email.com";
         Details details = detailsRepository.save(new Details(email, "Name", LocalDate.of(1982, 12, 2)));
         // Act
         Optional<Details> found = detailsRepository.findByEmail(email);
-
         // Assert
         assertFalse(found.isEmpty());
         assertEquals(details, found.get());
