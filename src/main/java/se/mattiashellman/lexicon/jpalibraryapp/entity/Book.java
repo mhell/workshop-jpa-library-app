@@ -44,6 +44,7 @@ public class Book {
         this.maxLoanDays = maxLoanDays;
     }
 
+    // TODO: test helpers
     public void addAuthor(Author author) {
         if(authors.add(author)) {
             author.getWrittenBooks().add(this);

@@ -36,6 +36,7 @@ public class Author {
         this.lastName = lastName;
     }
 
+    // TODO: test helpers
     public void addBook(Book book) {
         if(writtenBooks.add(book)) {
             book.getAuthors().add(this);
