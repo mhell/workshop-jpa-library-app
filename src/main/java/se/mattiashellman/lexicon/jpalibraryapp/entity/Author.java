@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.HashSet;
 import java.util.Set;
 
 @Getter
@@ -28,8 +29,8 @@ public class Author {
     String lastName;
 
     @Setter
-    @ManyToMany //TODO: cascades?
-    Set<Book> writtenBooks;
+    @ManyToMany //TODO: cascades? cascade = {CascadeType.PERSIST, CascadeType.MERGE}
+    Set<Book> writtenBooks = new HashSet<>();
 
     public Author(String firstName, String lastName) {
         this.firstName = firstName;

@@ -5,6 +5,7 @@ import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.LocalDate;
+import java.util.HashSet;
 import java.util.Set;
 
 @Getter
@@ -32,13 +33,13 @@ public class AppUser {
     @CreationTimestamp
     private LocalDate regDate;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "details_id", unique = true)
     private Details userDetails;
 
     @ToString.Exclude
     @OneToMany(mappedBy = "borrower") //TODO: cascades?
-    Set<BookLoan> bookLoans;
+    Set<BookLoan> bookLoans = new HashSet<>();
 
     public AppUser(String username, String password, Details userDetails) {
         this.username = username;

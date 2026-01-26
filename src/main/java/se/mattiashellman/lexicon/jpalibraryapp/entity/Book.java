@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.HashSet;
 import java.util.Set;
 
 @Getter
@@ -32,8 +33,8 @@ public class Book {
 
     @Setter
     @Column(nullable = false)
-    @ManyToMany(mappedBy = "writtenBooks") //TODO: cascades?
-    Set<Author> authors;
+    @ManyToMany(mappedBy = "writtenBooks") //TODO: cascades? cascade = {CascadeType.PERSIST, CascadeType.MERGE}
+    Set<Author> authors = new HashSet<>();
 
     @Setter
     private boolean available = true;
