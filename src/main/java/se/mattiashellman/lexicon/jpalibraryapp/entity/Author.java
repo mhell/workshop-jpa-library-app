@@ -29,7 +29,7 @@ public class Author {
     String lastName;
 
     @Setter
-    @ManyToMany //TODO: cascades? cascade = {CascadeType.PERSIST, CascadeType.MERGE}
+    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     Set<Book> writtenBooks = new HashSet<>();
 
     public Author(String firstName, String lastName) {
