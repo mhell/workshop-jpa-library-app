@@ -32,7 +32,7 @@ public class Book {
     @Setter
     @ToString.Exclude
     @Column(nullable = false)
-    @ManyToMany(mappedBy = "writtenBooks") //TODO: cascades? cascade = {CascadeType.PERSIST, CascadeType.MERGE}
+    @ManyToMany(mappedBy = "writtenBooks", cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH})
     Set<Author> authors = new HashSet<>();
 
     @Setter

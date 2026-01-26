@@ -28,7 +28,7 @@ public class Author {
 
     @Setter
     @ToString.Exclude
-    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH})
     Set<Book> writtenBooks = new HashSet<>();
 
     public Author(String firstName, String lastName) {
